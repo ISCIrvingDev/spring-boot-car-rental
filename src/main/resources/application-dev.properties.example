@@ -1,0 +1,34 @@
+spring.application.name=car-rental
+
+# --- Configuración de Conexión (Similar a tu DB_URI en .env) ---
+
+# URL de conexión: jdbc (Java Database Connectivity) seguido del driver y ubicación
+# Equivalente a: postgres://localhost:5432/nombre_de_la_base_de_datos
+spring.datasource.url=jdbc:postgresql://localhost:5432/nombre_de_la_base_de_datos
+
+# Tu usuario de Postgres (por defecto suele ser 'postgres')
+spring.datasource.username=nombre_del_usuario
+
+# Tu contraseña de Postgres (¡Cámbiala por la real!)
+spring.datasource.password=contraseña_del_usuario
+
+# El driver que Spring debe usar (lo agregamos en las dependencias)
+spring.datasource.driver-class-name=org.postgresql.Driver
+
+# --- Configuración JPA / Hibernate (Similar a TypeORM/Sequelize) ---
+
+# Dialecto: Le dice a Hibernate cómo traducir las queries al "idioma" específico de Postgres
+spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
+
+# DDL Auto: Controla cómo Hibernate maneja la estructura de tablas.
+# "update" = Analiza tus Entidades y actualiza el esquema de la DB automáticamente.
+# Es muy similar a "synchronize: true" en TypeORM.
+# Opciones: none, validate, update, create, create-drop.
+# En producción esto suele ser none. Es como poner synchronize: true en TypeORM. Si cambias una entidad, Java intentará cambiar la tabla en la base de datos automáticamente
+spring.jpa.hibernate.ddl-auto=update
+
+# Mostrar SQL: Muestra las consultas SQL generadas en la consola. Útil para debuggear.
+spring.jpa.show-sql=true
+
+# Formatear SQL: Para que las queries en la consola se vean bonitas y legibles.
+spring.jpa.properties.hibernate.format_sql=true

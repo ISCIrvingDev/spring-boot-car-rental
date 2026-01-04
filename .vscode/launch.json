@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-CarRentalApplication<car-rental>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.ivindev.carrental.car_rental.CarRentalApplication",
+      "projectName": "car-rental",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}
