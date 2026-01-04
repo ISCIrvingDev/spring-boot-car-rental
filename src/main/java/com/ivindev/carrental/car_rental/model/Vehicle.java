@@ -1,10 +1,21 @@
 package com.ivindev.carrental.car_rental.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+
 import java.math.BigDecimal;
 
 @Entity
 @Table(name = "vehicles")
+@Data
+@EqualsAndHashCode(callSuper = false) // Generating equals/hashCode implementation but without a call to superclass,
+                                      // even though this class does not extend java.lang.Object. If this is
+                                      // intentional, add '@EqualsAndHashCode(callSuper=false)' to your type
+@NoArgsConstructor
+@AllArgsConstructor
 public class Vehicle extends AbstractEntity {
 
   // Lob es para almacenar textos muy largos (como el base64)
@@ -31,76 +42,5 @@ public class Vehicle extends AbstractEntity {
   @JoinColumn(name = "vehicle_status_id", nullable = false)
   private VehicleStatus vehicleStatus;
 
-  // Getters y Setters
-  public String getImage() {
-    return image;
-  }
-
-  public void setImage(String image) {
-    this.image = image;
-  }
-
-  public String getMaker() {
-    return maker;
-  }
-
-  public void setMaker(String maker) {
-    this.maker = maker;
-  }
-
-  public String getModel() {
-    return model;
-  }
-
-  public void setModel(String model) {
-    this.model = model;
-  }
-
-  public Integer getYear() {
-    return year;
-  }
-
-  public void setYear(Integer year) {
-    this.year = year;
-  }
-
-  public String getColor() {
-    return color;
-  }
-
-  public void setColor(String color) {
-    this.color = color;
-  }
-
-  public BigDecimal getPrice() {
-    return price;
-  }
-
-  public void setPrice(BigDecimal price) {
-    this.price = price;
-  }
-
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  public Transmision getTransmision() {
-    return transmision;
-  }
-
-  public void setTransmision(Transmision transmision) {
-    this.transmision = transmision;
-  }
-
-  public VehicleStatus getVehicleStatus() {
-    return vehicleStatus;
-  }
-
-  public void setVehicleStatus(VehicleStatus vehicleStatus) {
-    this.vehicleStatus = vehicleStatus;
-  }
+  // Getters y Setters: Ya no es necesario gracias a la anotacion "@Data"
 }

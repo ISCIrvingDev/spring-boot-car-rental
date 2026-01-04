@@ -1,6 +1,9 @@
 package com.ivindev.carrental.car_rental.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -12,6 +15,8 @@ import java.util.UUID;
 @MappedSuperclass
 // EntityListener escucha los cambios para actualizar las fechas automáticamente
 @EntityListeners(AuditingEntityListener.class)
+@Data // ¡Aquí está la magia! Genera Getters y Setters
+@NoArgsConstructor
 public abstract class AbstractEntity {
 
   @Id
@@ -30,24 +35,5 @@ public abstract class AbstractEntity {
   @Column(name = "updated_at")
   private LocalDateTime updatedAt;
 
-  // Getters y Setters
-  public UUID getId() {
-    return id;
-  }
-
-  public void setIsActive(Boolean isActive) {
-    this.isActive = isActive;
-  }
-
-  public Boolean getIsActive() {
-    return isActive;
-  }
-
-  public LocalDateTime getCreatedAt() {
-    return createdAt;
-  }
-
-  public LocalDateTime getUpdatedAt() {
-    return updatedAt;
-  }
+  // Getters y Setters: Ya no es necesario gracias a la anotacion "@Data"
 }
