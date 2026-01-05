@@ -1,5 +1,7 @@
 package com.ivindev.carrental.car_rental.model;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,7 +19,10 @@ import lombok.NoArgsConstructor;
 public class User extends AbstractEntity {
 
   private String email;
+  private String userName;
   private String name;
+  private String lastName;
+  private LocalDateTime dateOfBirth;
   private String password;
 
   @ManyToOne(fetch = FetchType.LAZY)
