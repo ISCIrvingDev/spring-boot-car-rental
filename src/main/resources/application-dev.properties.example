@@ -32,3 +32,9 @@ spring.jpa.show-sql=true
 
 # Formatear SQL: Para que las queries en la consola se vean bonitas y legibles.
 spring.jpa.properties.hibernate.format_sql=true
+
+# JWT Secret Key (Generar una larga cadena aleatoria en producción)
+jwt.secret=cadena-con-la-secret-key-para-jwt
+# 900000 = 15 minutos en milisegundos (15 * 60 * 1000)
+# 1296000000 = 15 dias en milisegundos (https://convertlive.com/es/u/convertir/d%C3%ADas/a/milisegundos#15)
+jwt.expiration=900000
