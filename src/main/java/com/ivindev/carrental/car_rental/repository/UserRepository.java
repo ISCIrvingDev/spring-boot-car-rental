@@ -15,4 +15,8 @@ public interface UserRepository extends JpaRepository<User, UUID> {
   // automáticamente.
   // Equivalente a: SELECT * FROM users WHERE email = ?
   Optional<User> findByEmail(String email);
+
+  // * Aquí agregaremos un método personalizado para buscar por medio del
+  // "userName".
+  Optional<User> findByUserName(String username);
 }
